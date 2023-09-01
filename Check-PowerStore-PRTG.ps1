@@ -85,7 +85,7 @@ add-type @"
 
 # Variables
 $baseurl     = "https://$DeviceName/api/rest/"
-$UpdatePath  = ""
+$UpdatePath  = "https://raw.githubusercontent.com/buesche87/PRTG.Dell.PowerStore/main/Check-PowerStore-PRTG.ps1"
 
 # Create credentials
 $secpassword = ConvertTo-SecureString $Password -AsPlainText -Force
