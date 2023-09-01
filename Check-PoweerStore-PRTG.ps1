@@ -48,7 +48,7 @@
     Those %-parameters are retreived from the PRTG WebGUI
 
     Try it standalone
-    .\Get-PowerStore-Sensor.ps1 -DeviceName "fqdn" -SensorType "SensorType" -UserName "UserName" -Password "Password" -nossl
+    .\Check-PoweerStore-PRTG.ps1 -DeviceName "fqdn" -SensorType "SensorType" -UserName "UserName" -Password "Password" -nossl
 
 #>
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
