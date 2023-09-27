@@ -1,56 +1,63 @@
 ﻿<#
     .SYNOPSIS
-    This script checks some parameters of a DELL PowerStore storage.
-    It collects information per rest-api and creates a PRTG compatible XML return.
+		This script checks some parameters of a DELL PowerStore storage.
+		It collects information per rest-api and creates a PRTG compatible XML return.
+		
+		Create a new user with Operator role on the Powerstore. Use this user and password as script parameter
 
     .PARAMETER DeviceName
-    FQDN or IP-Address of the PowerStore appliance
-    This parameter is mandantory.
+		FQDN or IP-Address of the PowerStore appliance
+		This parameter is mandantory.
 
     .PARAMETER SensorType
-    Defines the Sensor Type in PRTG
-    Device      = Gets device infos, events and alerts
-    Capacity    = Gets some capacity related metrics
-    Performance = Gets some performance related metrics
-    This parameter is mandantory.
+		Defines the Sensor Type in PRTG
+		
+		- Device:      Gets device infos, events and alerts
+		- Capacity:    Gets some capacity related metrics
+		- Performance: Gets some performance related metrics
+		
+		This parameter is mandantory.
 
     .PARAMETER UserName
-    Username to login on the PowerStore
-    This parameter is mandantory.
+		Username to login on the PowerStore
+		This parameter is mandantory.
 
     .PARAMETER Password
-    Password to login on the PowerStore
-    This parameter is mandantory.
+		Password to login on the PowerStore
+		This parameter is mandantory.
 
     .PARAMETER nossl
-    This switch parameter is used if the PowerStore has no SSL certificate installed.
-    Do not use it in production. All the communication will be unencrypted.
-    This parameter is optional.
+		This switch is used if the PowerStore has no SSL certificate installed.
+		Do not use it in production. All the communication will be unencrypted.
+		This parameter is optional.
 
     .INPUTS
-    None
+		None
 
     .OUTPUTS
-    This script retrives an xml file and parses it to PRTG
+		This script creates an xml return formated for PRTG
 
     .LINK
-    https://raw.githubusercontent.com/tn-ict/Public/master/Disclaimer/DISCLAIMER
+		Disclamer: https://raw.githubusercontent.com/tn-ict/Public/master/Disclaimer/DISCLAIMER
 
     .NOTES
-    Author  : Andreas Bucher
-    Version : 0.2.0
-    Purpose : Get PRTG-formatted information from a Dell PowerStore via rest-api
+		Author:  Andreas Bucher
+		Version: 0.2.0
+		Date:    27.09.2023
+		Purpose: Get PRTG-formated information from a Dell PowerStore via rest-api
 
     .EXAMPLE
-    Create a new user with Operator role on the Powerstore. Use this user and password as parameter
-    Create a new sensor on PRTG:
-    -DeviceName '%host' -SensorType 'SensorType' -Username '%windowsuser' -Password '%windowspassword' (-nossl)
-    Those %-parameters are retreived from the PRTG WebGUI
+		-DeviceName '%host' -SensorType 'SensorType' -Username '%windowsuser' -Password '%windowspassword' (-nossl)
+	
+		Create a Sensor in PRTG with the parameters above.
+		The %-parameters are retreived from the PRTG WebGUI.
+		
+    .EXAMPLE
+		.\Check-PoweerStore-PRTG.ps1 -DeviceName "fqdn" -SensorType "SensorType" -UserName "UserName" -Password "Password" -nossl
 
-    Try it standalone
-    .\Check-PoweerStore-PRTG.ps1 -DeviceName "fqdn" -SensorType "SensorType" -UserName "UserName" -Password "Password" -nossl
-
+		Try it standalone
 #>
+
 #----------------------------------------------------------[Declarations]----------------------------------------------------------
 # Declare input parameters
 Param(
