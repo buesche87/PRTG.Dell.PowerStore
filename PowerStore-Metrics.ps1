@@ -13,8 +13,8 @@
         Defines the Sensor Type in PRTG
         
         - Device:      Gets device infos, events and alerts
-        - Capacity:    Gets some capacity related metrics
-        - Performance: Gets some performance related metrics
+        - Capacity:    Gets capacity related metrics
+        - Performance: Gets performance related metrics
         
         This parameter is mandantory.
 
@@ -53,7 +53,7 @@
         The %-parameters are retreived from the PRTG WebGUI.
         
     .EXAMPLE
-        .\Check-PoweerStore-PRTG.ps1 -DeviceName "fqdn" -SensorType "SensorType" -UserName "UserName" -Password "Password" -nossl
+        .\PowerStore-Metrics.ps1 -DeviceName "fqdn" -SensorType "SensorType" -UserName "UserName" -Password "Password" -nossl
 
         Try it standalone
 #>
